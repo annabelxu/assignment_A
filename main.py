@@ -1,8 +1,9 @@
+import os
 from flask import Flask, request
 from google.cloud import storage
 
 app = Flask(__name__)
-CLOUD_STORAGE_BUCKET = os.environment.get('CLOUD_STORAGE_BUCKET')
+CLOUD_STORAGE_BUCKET = os.environ.get('CLOUD_STORAGE_BUCKET')
 
 
 @app.route("/")
