@@ -19,7 +19,7 @@ def upload():
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(photo.filename)
     blob.upload_from_string(photo.read(), content_type=photo.content_type)
-    print(f"File uploaded: {photo.filename} to {blob.public_url}")
+
     return ":)"
 
 if __name__ == '__main__':
