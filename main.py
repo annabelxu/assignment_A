@@ -1,5 +1,5 @@
 import os, datetime, json
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from google.cloud import storage
 from google.cloud import datastore
 
@@ -25,7 +25,7 @@ def cats():
     dict['timestamp'] = str(entity['timestamp'])
     dict['star_rating'] = 0
     json_array.append(dict)
-  return json.dumps(json_array, indent=4)
+  return jsonify(json_array), 200
 
 @app.route("/upload", methods=['POST'])
 
