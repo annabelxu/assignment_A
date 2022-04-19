@@ -11,6 +11,21 @@ CLOUD_STORAGE_BUCKET = "photo-timeline-shared123"
 def homepage():
     return "Hello Photo Timeline!"
 
+@app.route("/cats")
+def cats():
+  datastore_client = datastore.Client.from_service_account_json('photo-timeline-shared-347519-a62ca851fc20.json')
+  query = datastore_client.query(kind='Photos')
+  photo_entities = list(query.fetch())
+
+  json_array=[]
+  for entity in photo_entities:
+    dict = {}
+    dict['blob_name'] = entity['blob_name']
+    dict['image_public_url'] = entity['image_public_url']
+    dict['timestamp'] = str(entity['timestamp'])
+    json_array.append(dict)
+  return json.dumps(json_array, indent=4)
+  
 @app.route("/upload", methods=['POST'])
 
 def upload():
