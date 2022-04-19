@@ -32,6 +32,7 @@ def upload():
     entity['blob_name'] = blob.name
     entity['image_public_url'] = blob.public_url
     entity['timestamp'] = datetime.datetime.now()
+    entity['star_rating'] = 0
   
 
     datastore_client.put(entity)
