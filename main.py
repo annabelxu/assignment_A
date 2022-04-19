@@ -15,6 +15,7 @@ def homepage():
 def upload():
     photo = request.files['file']
     print(photo.filename)
+    
     storage_client = storage.Client.from_service_account_json('photo-timeline-shared-347519-a62ca851fc20.json')
     bucket_name = CLOUD_STORAGE_BUCKET
     bucket = storage_client.bucket(bucket_name)
