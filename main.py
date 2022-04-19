@@ -11,6 +11,10 @@ CLOUD_STORAGE_BUCKET = "photo-timeline-shared123"
 def homepage():
     return "Hello Photo Timeline!"
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return "Dog not found.", 404
+
 @app.route("/cats")
 def cats():
   datastore_client = datastore.Client.from_service_account_json('photo-timeline-shared-347519-a62ca851fc20.json')
