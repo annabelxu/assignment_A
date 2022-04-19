@@ -34,6 +34,8 @@ def upload():
     entity['timestamp'] = datetime.datetime.now()
   
 
+    datastore_client.put(entity)
+
 
 
     return ":)"
