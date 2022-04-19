@@ -23,7 +23,7 @@ def cats():
     dict['blob_name'] = entity['blob_name']
     dict['image_public_url'] = entity['image_public_url']
     dict['timestamp'] = str(entity['timestamp'])
-    dict['star_rating'] = 0
+    dict['star_rating'] = star_rating
     json_array.append(dict)
   return jsonify(json_array), 200
 
