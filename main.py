@@ -31,6 +31,7 @@ def cats():
 
 def upload():
     photo = request.files['file']
+    star_rating = request.form['star_rating']
     print(photo.filename)
 
     storage_client = storage.Client.from_service_account_json('photo-timeline-shared-347519-a62ca851fc20.json')
@@ -48,7 +49,7 @@ def upload():
     entity['blob_name'] = blob.name
     entity['image_public_url'] = blob.public_url
     entity['timestamp'] = datetime.datetime.now()
-    entity['star_rating'] = 0
+    entity['star_rating'] = star_rating
   
 
     datastore_client.put(entity)
