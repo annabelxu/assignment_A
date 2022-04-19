@@ -1,4 +1,4 @@
-import os, datetime
+import os, datetime, json
 from flask import Flask, request
 from google.cloud import storage
 from google.cloud import datastore
@@ -25,7 +25,7 @@ def cats():
     dict['timestamp'] = str(entity['timestamp'])
     json_array.append(dict)
   return json.dumps(json_array, indent=4)
-  
+
 @app.route("/upload", methods=['POST'])
 
 def upload():
